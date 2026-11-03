@@ -5,13 +5,13 @@ export default function GallerySection() {
     <section id="gallery" className="scroll-mt-24 py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[.2em] text-forest-700">
+          <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
             Moments that matter
           </p>
-          <h2 className="font-display mt-3 text-3xl font-bold text-forest-950 sm:text-4xl">
+          <h2 className="font-display mt-3 text-3xl font-bold text-foreground sm:text-4xl">
             A community in action
           </h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
+          <p className="mt-3 text-sm leading-7 text-muted-foreground">
             A glimpse of what people can do when they show up for one another.
           </p>
         </div>
@@ -26,7 +26,7 @@ export default function GallerySection() {
               className="h-64 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-80"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 to-transparent" />
-            <p className="font-display absolute bottom-5 left-5 text-lg font-bold text-white">
+            <p className="font-display absolute bottom-5 left-5 text-lg font-bold text-cream">
               Stronger, together
             </p>
           </div>
@@ -64,7 +64,7 @@ export default function GallerySection() {
               className="h-52 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-60"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 to-transparent" />
-            <p className="font-display absolute bottom-5 left-5 text-lg font-bold text-white">
+            <p className="font-display absolute bottom-5 left-5 text-lg font-bold text-cream">
               Every helping hand counts
             </p>
           </div>

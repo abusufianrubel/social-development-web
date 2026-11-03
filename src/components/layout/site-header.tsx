@@ -45,7 +45,7 @@ export default function SiteHeader() {
               className={
                 link.isCurrent
                   ? "text-sm font-semibold text-forest-800"
-                  : "text-sm text-muted hover:text-forest-700"
+                  : "text-sm text-muted-foreground hover:text-forest-700"
               }
               aria-current={link.isCurrent ? "page" : undefined}
             >
@@ -94,7 +94,7 @@ export default function SiteHeader() {
                 className={
                   link.isCurrent
                     ? "rounded-xl px-3 py-2.5 text-sm font-semibold text-forest-800 hover:bg-forest-100"
-                    : "rounded-xl px-3 py-2.5 text-sm text-muted hover:bg-forest-100 hover:text-forest-700"
+                    : "rounded-xl px-3 py-2.5 text-sm text-muted-foreground hover:bg-forest-100 hover:text-forest-700"
                 }
                 aria-current={link.isCurrent ? "page" : undefined}
               >

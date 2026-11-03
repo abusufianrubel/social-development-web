@@ -4,32 +4,36 @@ const causes = [
   {
     href: "#events",
     icon: "♧",
-    iconClassName: "text-forest-700",
-    cardClassName: "bg-forest-50 hover:bg-forest-100",
+    iconClassName: "text-forest-700 dark:text-forest-100",
+    cardClassName:
+      "bg-forest-50 hover:bg-forest-100 dark:bg-forest-900/40 dark:hover:bg-forest-800/60",
     title: "Plantation",
     description: "Grow a greener future",
   },
   {
     href: "#events",
     icon: "♡",
-    iconClassName: "text-amber-600",
-    cardClassName: "bg-amber-50 hover:bg-amber-100",
+    iconClassName: "text-amber-600 dark:text-amber-300",
+    cardClassName:
+      "bg-amber-50 hover:bg-amber-100 dark:bg-amber-400/10 dark:hover:bg-amber-400/20",
     title: "Donation",
     description: "Share what you can",
   },
   {
     href: "#events",
     icon: "⌂",
-    iconClassName: "text-sky-700",
-    cardClassName: "bg-sky-50 hover:bg-sky-100",
+    iconClassName: "text-sky-700 dark:text-sky-300",
+    cardClassName:
+      "bg-sky-50 hover:bg-sky-100 dark:bg-sky-500/10 dark:hover:bg-sky-500/20",
     title: "Community care",
     description: "Support your neighbors",
   },
   {
     href: "#events",
     icon: "✿",
-    iconClassName: "text-rose-600",
-    cardClassName: "bg-rose-50 hover:bg-rose-100",
+    iconClassName: "text-rose-600 dark:text-rose-300",
+    cardClassName:
+      "bg-rose-50 hover:bg-rose-100 dark:bg-rose-500/10 dark:hover:bg-rose-500/20",
     title: "Helping hands",
     description: "Be there for others",
   },
@@ -39,17 +43,17 @@ export default function CausesSection() {
   return (
     <section
       id="about"
-      className="scroll-mt-24 border-y border-forest-900/5 bg-white py-14"
+      className="scroll-mt-24 border-y border-border bg-card py-14"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[.2em] text-forest-700">
+          <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
             Many ways to make a difference
           </p>
-          <h2 className="font-display mt-3 text-3xl font-bold text-forest-950">
+          <h2 className="font-display mt-3 text-3xl font-bold text-foreground">
             Find a cause close to your heart
           </h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
+          <p className="mt-3 text-sm leading-7 text-muted-foreground">
             Every community has needs. Every person has something meaningful to
             give.
           </p>
@@ -67,10 +71,12 @@ export default function CausesSection() {
               >
                 {cause.icon}
               </span>
-              <h3 className="mt-3 text-sm font-bold text-forest-950">
+              <h3 className="mt-3 text-sm font-bold text-foreground">
                 {cause.title}
               </h3>
-              <p className="mt-1 text-xs text-muted">{cause.description}</p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {cause.description}
+              </p>
             </Link>
           ))}
         </div>

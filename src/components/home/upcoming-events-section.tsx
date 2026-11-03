@@ -8,20 +8,20 @@ export default function UpcomingEventsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[.2em] text-forest-700">
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
               Get out there
             </p>
-            <h2 className="font-display mt-3 text-3xl font-bold text-forest-950 sm:text-4xl">
+            <h2 className="font-display mt-3 text-3xl font-bold text-foreground sm:text-4xl">
               Upcoming events
             </h2>
-            <p className="mt-3 text-sm leading-7 text-muted">
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">
               Good people. Meaningful moments. Find an event and be part of the
               change.
             </p>
           </div>
           <Link
             href="/upcoming-events"
-            className="text-sm font-bold text-forest-700 hover:text-forest-900"
+            className="text-sm font-bold text-primary hover:text-primary/80"
           >
             Explore all events&nbsp; →
           </Link>
@@ -36,7 +36,7 @@ export default function UpcomingEventsSection() {
         <div className="mt-10 text-center">
           <Link
             href="/upcoming-events"
-            className="inline-flex rounded-xl border border-forest-800/20 bg-white px-6 py-3 text-sm font-bold text-forest-800 hover:bg-forest-50"
+            className="inline-flex rounded-xl border border-border bg-card px-6 py-3 text-sm font-bold text-primary hover:bg-accent"
           >
             View all upcoming events&nbsp; →
           </Link>
