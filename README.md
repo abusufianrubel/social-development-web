@@ -123,10 +123,10 @@ Create a `.env.local` file in the root directory.
 Example:
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:5000
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
-Add other authentication-related variables only as required by your configured Better Auth integration.
+Set `NEXT_PUBLIC_API_URL` to the Express API origin (without `/api/v1`). Better Auth is hosted by the backend at `/api/v1/auth`; the frontend uses this origin for email/password sign-in, registration, session checks, Google OAuth, and JWT token retrieval. Keep the backend `CLIENT_URL` set to the exact frontend origin.
 
 **Important:** Never expose private API secrets, JWT signing keys, database credentials, or other sensitive values through `NEXT_PUBLIC_` environment variables.
 
@@ -171,14 +171,15 @@ Design priorities:
 
 ## 🔐 Authentication & Authorization
 
-The application integrates Better Auth for user authentication.
+The application connects to the Better Auth server hosted by the Express API at `/api/v1/auth`. Configure `NEXT_PUBLIC_API_URL` to the API origin and the backend `CLIENT_URL` to the frontend origin. The browser sends credentialed requests so Better Auth can persist its session cookie.
 
 Authentication-related functionality includes:
 
 - Email and password registration.
 - Email and password login.
 - Social authentication.
-- Protected frontend routes.
+- Protected frontend routes with session checks on page reload.
+- Conditional profile menu and logout.
 - Session persistence.
 - JWT-based API authentication integration.
 
