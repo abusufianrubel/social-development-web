@@ -5,7 +5,10 @@ import PageFrame from "@/components/shared/page-frame";
 
 export const metadata = { title: "Sign in | TogetherWeGrow" };
 
-export default function LoginPage() {
+type LoginPageProps = { searchParams: Promise<{ next?: string }> };
+
+export default async function LoginPage({ searchParams }: LoginPageProps) {
+  const { next } = await searchParams;
   return (
     <PageFrame>
       <section className="bg-cream px-4 py-12 dark:bg-background sm:py-16">
@@ -19,7 +22,7 @@ export default function LoginPage() {
             <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">Welcome back</p>
             <h2 className="font-display mt-3 text-3xl font-bold">Sign in to your account</h2>
             <p className="mt-2 mb-8 text-sm leading-6 text-muted-foreground">Continue making good things happen in your neighborhood.</p>
-            <AuthForm mode="login" />
+            <AuthForm mode="login" redirectTo={next} />
           </div>
         </div>
       </section>
