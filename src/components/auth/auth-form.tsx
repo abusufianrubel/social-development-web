@@ -31,7 +31,7 @@ export default function AuthForm({ mode, redirectTo: requestedRedirect }: AuthFo
     if (!isSessionPending && session) {
       router.replace(redirectTo);
     }
-  }, [isSessionPending, router, session]);
+  }, [isSessionPending, redirectTo, router, session]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -40,6 +40,7 @@ export default function AuthForm({ mode, redirectTo: requestedRedirect }: AuthFo
     setNotice("");
     setIsSubmitting(true);
 
+    const callbackURL = new URL(redirectTo, window.location.origin).toString();
     const formData = new FormData(event.currentTarget);
     const email = String(formData.get("email") ?? "").trim();
     const password = String(formData.get("password") ?? "");
@@ -54,7 +55,7 @@ export default function AuthForm({ mode, redirectTo: requestedRedirect }: AuthFo
           email,
           password,
           image: image || undefined,
-          callbackURL: redirectTo,
+          callbackURL,
         });
 
         if (result.error) throw new Error(result.error.message);
@@ -64,7 +65,7 @@ export default function AuthForm({ mode, redirectTo: requestedRedirect }: AuthFo
         const result = await authClient.signIn.email({
           email,
           password,
-          callbackURL: redirectTo,
+          callbackURL,
         });
 
         if (result.error) throw new Error(result.error.message);
@@ -93,9 +94,10 @@ export default function AuthForm({ mode, redirectTo: requestedRedirect }: AuthFo
     setIsSubmitting(true);
 
     try {
+      const callbackURL = new URL(redirectTo, window.location.origin).toString();
       const result = await authClient.signIn.social({
         provider: "google",
-        callbackURL: redirectTo,
+        callbackURL,
       });
 
       if (result.error) throw new Error(result.error.message);

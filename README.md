@@ -126,7 +126,7 @@ Example:
 NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
-Set `NEXT_PUBLIC_API_URL` to the Express API origin (without `/api/v1`). Better Auth is hosted by the backend at `/api/v1/auth`; the frontend uses this origin for email/password sign-in, registration, session checks, Google OAuth, and JWT token retrieval. Keep the backend `CLIENT_URL` set to the exact frontend origin.
+Set `NEXT_PUBLIC_API_URL` to the Express API origin (without `/api/v1`). Better Auth is hosted by the backend at `/api/v1/auth`; the frontend uses this origin for email/password sign-in, registration, session checks, Google OAuth, and JWT token retrieval. Authentication callbacks are sent as absolute URLs using the current frontend origin, so keep the backend `CLIENT_URL` set to the exact frontend origin (for local development, `http://localhost:3000`).
 
 **Important:** Never expose private API secrets, JWT signing keys, database credentials, or other sensitive values through `NEXT_PUBLIC_` environment variables.
 
