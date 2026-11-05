@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowRight, Eye, EyeOff, HeartHandshake, Mail } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
@@ -16,6 +16,12 @@ const fieldClass =
 export default function AuthForm({ mode }: AuthFormProps) {
   const isRegister = mode === "register";
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const requestedNext = searchParams.get("next");
+  const redirectTo =
+    requestedNext?.startsWith("/") && !requestedNext.startsWith("//")
+      ? requestedNext
+      : "/upcoming-events";
   const { data: session, isPending: isSessionPending } = authClient.useSession();
   const [showPassword, setShowPassword] = useState(false);
   const [notice, setNotice] = useState("");
@@ -24,7 +30,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
   useEffect(() => {
     if (!isSessionPending && session) {
-      router.replace("/upcoming-events");
+      router.replace(redirectTo);
     }
   }, [isSessionPending, router, session]);
 
@@ -49,7 +55,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
           email,
           password,
           image: image || undefined,
-          callbackURL: "/upcoming-events",
+          callbackURL: redirectTo,
         });
 
         if (result.error) throw new Error(result.error.message);
