@@ -64,7 +64,7 @@ export default function AuthForm({ mode, redirectTo: requestedRedirect }: AuthFo
         const result = await authClient.signIn.email({
           email,
           password,
-          callbackURL: "/upcoming-events",
+          callbackURL: redirectTo,
         });
 
         if (result.error) throw new Error(result.error.message);
@@ -72,7 +72,7 @@ export default function AuthForm({ mode, redirectTo: requestedRedirect }: AuthFo
         setNotice("You are signed in. Redirecting to upcoming events...");
       }
 
-      router.replace("/upcoming-events");
+      router.replace(redirectTo);
       router.refresh();
     } catch (error) {
       setNoticeType("error");
@@ -95,7 +95,7 @@ export default function AuthForm({ mode, redirectTo: requestedRedirect }: AuthFo
     try {
       const result = await authClient.signIn.social({
         provider: "google",
-        callbackURL: "/upcoming-events",
+        callbackURL: redirectTo,
       });
 
       if (result.error) throw new Error(result.error.message);
