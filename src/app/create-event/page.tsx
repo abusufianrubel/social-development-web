@@ -1,6 +1,5 @@
 import { CalendarPlus } from "lucide-react";
 import { Suspense } from "react";
-import EventForm from "@/components/events/event-form";
 import ProtectedRoute from "@/components/auth/protected-route";
 import PageFrame from "@/components/shared/page-frame";
 import PageHeading from "@/components/shared/page-heading";
