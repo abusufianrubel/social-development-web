@@ -2,25 +2,24 @@
 
 import Link from "next/link";
 import { useEffect, useState, type FormEvent } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ArrowRight, Eye, EyeOff, HeartHandshake, Mail } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
 type AuthFormProps = {
   mode: "login" | "register";
+  redirectTo?: string;
 };
 
 const fieldClass =
   "mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-primary/10";
 
-export default function AuthForm({ mode }: AuthFormProps) {
+export default function AuthForm({ mode, redirectTo: requestedRedirect }: AuthFormProps) {
   const isRegister = mode === "register";
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const requestedNext = searchParams.get("next");
   const redirectTo =
-    requestedNext?.startsWith("/") && !requestedNext.startsWith("//")
-      ? requestedNext
+    requestedRedirect?.startsWith("/") && !requestedRedirect.startsWith("//")
+      ? requestedRedirect
       : "/upcoming-events";
   const { data: session, isPending: isSessionPending } = authClient.useSession();
   const [showPassword, setShowPassword] = useState(false);
