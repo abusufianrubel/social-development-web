@@ -6,7 +6,7 @@ Discover upcoming events, create social initiatives, join volunteer activities, 
 
 ## 🌐 Live Website
 
-**Live Demo:** [Add Your Deployed Website URL]
+**Live Demo:** https://social-development-web.vercel.app
 
 ## 📖 About The Project
 
@@ -14,7 +14,7 @@ Social Development Events Platform is a web-based application where people can d
 
 The platform aims to make community engagement easier by bringing volunteers and event organizers together in one place.
 
-Whether it is winter clothes distribution, tree plantation, neighborhood cleanup, or helping people in need, users can organize and participate in meaningful initiatives.
+Whether it is winter clothes distribution, tree planting, neighborhood cleanup, or helping people in need, users can organize and participate in meaningful initiatives.
 
 ## ✨ Key Features
 
@@ -231,9 +231,9 @@ Add screenshots of the following sections after implementation:
 
 **Assignment:** Web Development
 
-**Client Repository:** [Add Client GitHub Repository URL]
+**Client Repository:** https://github.com/abusufianrubel/social-development-web
 
-**Server Repository:** [Add Server GitHub Repository URL]
+**Server Repository:** https://github.com/abusufianrubel/social-development-api
 
 ---
 
