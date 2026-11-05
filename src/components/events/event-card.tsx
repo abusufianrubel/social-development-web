@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { EventSummary, EventTypeTone } from "@/types/event";
 
@@ -16,10 +17,13 @@ export default function EventCard({ event }: EventCardProps) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition hover:-translate-y-1">
       <div className="relative overflow-hidden">
-        <img
+        <Image
           src={event.image}
           alt={event.imageAlt}
-          loading="lazy"
+          width={800}
+          height={520}
+          unoptimized
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
         />
         <span
